@@ -1,10 +1,12 @@
 package saga.commons.events;
 
+import lombok.NoArgsConstructor;
 import saga.commons.dto.OrderRequestDto;
 
 import java.util.Date;
 import java.util.UUID;
 
+@NoArgsConstructor
 public class OrderEvent implements Event {
 
     private UUID eventId = UUID.randomUUID();
@@ -20,5 +22,10 @@ public class OrderEvent implements Event {
     @Override
     public Date getDate() {
         return date;
+    }
+
+    public OrderEvent(OrderRequestDto orderRequestDto, OrderStatus orderStatus) {
+        this.orderRequestDto = orderRequestDto;
+        this.orderStatus = orderStatus;
     }
 }

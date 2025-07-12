@@ -1,10 +1,12 @@
 package saga.commons.events;
 
+import lombok.NoArgsConstructor;
 import saga.commons.dto.PaymentRequestDto;
 
 import java.util.Date;
 import java.util.UUID;
 
+@NoArgsConstructor
 public class PaymentEvent implements Event {
 
     private UUID eventID = UUID.randomUUID();
@@ -21,5 +23,10 @@ public class PaymentEvent implements Event {
     @Override
     public Date getDate() {
         return eventDate;
+    }
+
+    public PaymentEvent(PaymentRequestDto paymentRequestDto, PaymentStatus paymentStatus) {
+        this.paymentRequestDto = paymentRequestDto;
+        this.paymentStatus = paymentStatus;
     }
 }

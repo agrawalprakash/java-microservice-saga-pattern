@@ -1,11 +1,13 @@
 package saga.commons.events;
 
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import saga.commons.dto.OrderRequestDto;
 
 import java.util.Date;
 import java.util.UUID;
 
+@Data
 @NoArgsConstructor
 public class OrderEvent implements Event {
 

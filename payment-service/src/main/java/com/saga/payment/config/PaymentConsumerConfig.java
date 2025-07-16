@@ -31,7 +31,7 @@ public class PaymentConsumerConfig {
             return Mono.fromSupplier(()->
                     this.paymentService.newOrderEvent(orderEvent));
         } else {
-            return Mono.fromSupplier(() ->
+            return Mono.fromRunnable(() ->
                     this.paymentService.cancelOrderEvent(orderEvent));
         }
 
